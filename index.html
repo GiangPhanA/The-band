@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="./font/themify-icons.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <script src="./JS/script.js"></script>
     
     
@@ -34,10 +35,13 @@
              <!--End nav-->
 
              <!--Begin Search button-->
-             <div class="search-btn">
+             <div  class="search-btn">
                  <i class="search-icon ti-search"></i>
              </div>
              <!--End Search button-->
+             <div id="js-mobile-menu" class="mobile-menu-btn">
+                 <i class="menu-icon ti-menu"></i>
+             </div>
 
         </div>
 
@@ -243,6 +247,33 @@
         modalContainer.addEventListener('click',function(event){
             event.stopPropagation();
         })
+
+    </script>
+    <script>
+        const header = document.getElementById('header');
+        const mobileMenu = document.getElementById('js-mobile-menu');
+        headerHeight = header.clientHeight;
+        // Đóng mở- menu
+        mobileMenu.onclick = function(){
+            //console.log("da click menu");
+           // console.log(header.clientHeight);
+           const isClosed = header.clientHeight === headerHeight;
+           if(isClosed ){
+               header.style.height ='auto';
+           }
+           else {
+            header.style.height = '46px';
+           }
+         
+        };
+        const menuItems = document.querySelectorAll('#nav>li>a[href*="#"]');
+        //console.log(menuItems);
+        for(const menuItem of menuItems){
+            menuItem.addEventListener('click',function(){
+                header.style.height = '46px';
+            })
+        }
+        
 
     </script>
 
