@@ -53,7 +53,7 @@ html {
     left: 0px;
     right: 0px;
     z-index: 6;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #nav {
@@ -117,6 +117,14 @@ html {
 #header .search-btn {
     float: right;
     padding: 0 21px;
+}
+
+#header .mobile-menu-btn {
+    position: absolute;
+    top:0px;
+    right:0px;
+    padding: 0 21px;
+
 }
 #header .mobile-menu-btn:hover {
     background-color: #ccc;

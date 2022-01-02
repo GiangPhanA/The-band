@@ -39,9 +39,13 @@
                  <i class="search-icon ti-search"></i>
              </div>
              <!--End Search button-->
+
+             <!--Mobile Menu-->
+
              <div id="js-mobile-menu" class="mobile-menu-btn">
                  <i class="menu-icon ti-menu"></i>
              </div>
+             <!--End Mobile Menu-->
 
         </div>
 
@@ -262,15 +266,24 @@
                header.style.height ='auto';
            }
            else {
-            header.style.height = '46px';
+            header.style.height = null;
            }
          
         };
         const menuItems = document.querySelectorAll('#nav>li>a[href*="#"]');
         //console.log(menuItems);
+        
         for(const menuItem of menuItems){
-            menuItem.addEventListener('click',function(){
-                header.style.height = '46px';
+            
+            menuItem.addEventListener('click',function(e){
+                const isParentMenu = this.nextElementSibling && menuItem.nextElementSibling.classList.contains('subnav');
+                if(isParentMenu){
+                    e.preventDefault();
+                    console.log("khong dung")
+                }
+                else {
+                    header.style.height = null;
+                }
             })
         }
         
