@@ -319,11 +319,15 @@ html {
     border: none;
     border-radius: 5px 5px;
     text-align: center;
+    transition: opacity 0,2s ease;
 
 }
 
+
+
 .btn:hover {
     background-color:#ccc;
+    color:black;
     cursor: pointer;
     
 }
